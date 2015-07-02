@@ -44,6 +44,16 @@ h1, h2 {
     width: 800px;
 }
 
+.content p{
+    text-align: justify;
+}
+
+blockquote {
+    border-left: 2px solid rgb(164, 164, 164);
+    padding-left: 20px;
+    margin-left: 0;
+}
+
 .info {
     position: absolute;
     top: 0;
