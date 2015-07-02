@@ -18,7 +18,7 @@ main = putStrLn "Hello, World!"
 
 As I am a fan of minimalism in design, focus on functionality and don't like to have much dependencies in my projects,
 I chose the static website generator [Hakyll](http://jaspervdj.be/hakyll/) from [Jasper Van der Jeugt](http://jaspervdj.be/)
-instead of a blogging Software like the famous [Wordpress](https://wordpress.com/) project.
+instead of a blogging software like the famous [Wordpress](https://wordpress.com/) project.
 
 If you don't like 'the design' of this blog, here is my favourite quote for you:
 
