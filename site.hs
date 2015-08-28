@@ -42,7 +42,6 @@ main = hakyllWith config $ do
                 >>= loadAndApplyTemplate "templates/default.html" archiveCtx
                 >>= relativizeUrls
 
-
     match "index.html" $ do
         route idRoute
         compile $ do
@@ -59,8 +58,24 @@ main = hakyllWith config $ do
 
     match "templates/*" $ compile templateCompiler
 
+    create ["atom.xml"] $ do
+        route idRoute
+        compile $ do
+            let feedCtx = postCtx `mappend` bodyField "description"
+            posts <- fmap (take 10) . recentFirst =<< loadAll "posts/*"
+            renderAtom myFeedConfiguration feedCtx posts
+            where
+                myFeedConfiguration = FeedConfiguration
+                    {
+                        feedTitle = "&lt;°)))o&gt;&lt;",
+                        feedDescription = "Mainly IT Security... and other things!",
+                        feedAuthorName = "Alexander Weidinger",
+                        feedAuthorEmail = "alexwegoo@gmail.com",
+                        feedRoot = "http://www.scriptfish.org"
+                    }
 
 --------------------------------------------------------------------------------
+
 postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" `mappend`
